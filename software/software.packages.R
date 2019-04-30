@@ -11,7 +11,7 @@
 #护眼宝
 #Navicat Mysqlworkbench  Mysql GUI
 #eclipse Apache Tomcat 
-#Webstrom
+#Webstrom Rstudio
 #Robo3T Studio3T mongoDB GUI
 #有道云笔记 
 
