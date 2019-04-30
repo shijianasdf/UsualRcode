@@ -1,0 +1,194 @@
+snippet xx.ID.gene
+	source("/pub5/xiaoyun/IPrograms/BioAnnotation/IDConverts/IDConverts.R")
+	IDConverts(#编码蛋白基因
+	  genelist, #一个字符向量 
+	  from=c("geneID", "geneName", "geneAlias", "unigene", "ucscTX", "ENSEMBLGene", "ENSEMBLTranscript", "uniprot"),  #原ID类型 
+	  to=c("geneName", "geneID"), #目标ID类型
+	  mixAnno=FALSE, #输入的基因列表是否存在混杂不同类型
+	  organism="human", #也支持一部分的转换 在mouse中
+	  only=FALSE, #对于那些一对多的情况，是否随机保留其中一个
+	  caseSensitivity=TRUE#是否考虑大小写
+	)
+
+snippet xx.Enrich.GSEA
+	source("/pub5/xiaoyun/IPrograms/BioInformatics/FunctionPathway/EnrichmentAnalysis/GSEA.prerank.R")
+	gsea.prerank(
+		gene.values=${1:vector}, #一个数字向量，名字为基因的名字
+		gs=${2:list}, #一个list， 每一个元素对应一个基因的集合
+		outDir,
+		fdr.threshold=0.25, 
+		nperm=1000, 
+		plot.top.x=20, #返回前20个显著富集的结果
+		set.max=500, #集合允许的基因最大的数目
+		set.min=15 #集合里的基因最少数目
+	)
+#C:\Users\***\Documents\.R\snippets\r.snippets
+#snippet xx.pdf
+#	library(rmarkdown)
+#	render(
+#	  input="${1:.Rmd}", 
+#	  output_file = "${2:.pdf}", #后面的代码不用动了
+#	  output_format = pdf_document(latex_engine = "xelatex", pandoc_args="--metadata=mainfont:SimSun", template="/pub5/xiaoyun/Bin/template.latex"), encoding="UTF-8"
+#	)
+
+#snippet xx.output.html
+#	render(
+#		input="${1:.Rmd}", 
+#		output_file = "${2:.html}", 
+#		output_format = 'html_document'
+#	)
+
+#snippet xx.word
+#	render(
+#		input="${1:.Rmd}", 
+#		output_file = "${2:.doc}",
+#		output_format = 'word_document'
+#	)
+snippet xx.out.pdf	
+	render(
+	  input="${1:.Rmd}", 
+	  output_file = "${2:.pdf}", 
+	  output_format = beamer_presentation(latex_engine = "xelatex", pandoc_args="--metadata=mainfont:SimSun"), encoding="UTF-8"
+	)
+
+snippet xx.out.ppt
+	render(
+	  input="${1:.Rmd}", 
+	  output_file = "${2:.html}", 
+	  output_format = ioslides_presentation(logo="/pub5/xiaoyun/Bin/COM/logo_xteam.png", widescreen=TRUE, css="/pub5/xiaoyun/Bin/COM/xteam_ioslides.css"), encoding="UTF-8"
+	)
+snippet xx.anno.lmodify
+	`r paste("# Date: ", date(), "------------------------------")`
+	# Author: ${1}
+	# Descrp: ${2}
+	# 
+	###################################################################
+
+snippet xx.anno.smodify
+	`r paste("# Date: ", date(), "------------------------------")`
+	# Author: ${1} ; Descrp: ${2}
+
+snippet xx.anno.create
+	`r paste("# Date: ", date(), "------------------------------")`
+	# Function: ${1}
+	# 
+	# 
+	###################################################################
+	
+
+snippet xx.anno.function
+	#' @@ ${1}
+	#' @param  
+	#' @param  
+	#' @param  
+	#' @param  
+	#' @param  
+	#' @returnType 
+	#' @return 
+	#' 
+	#' @author 
+
+
+
+
+
+snippet lib
+	library(${1:package})
+
+snippet req
+	require(${1:package})
+
+snippet src
+	source("${1:file.R}")
+
+snippet ret
+	return(${1:code})
+
+snippet mat
+	matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols})
+
+snippet sg
+	setGeneric("${1:generic}", function(${2:x, ...}) {
+		standardGeneric("${1:generic}")
+	})
+
+snippet sm
+	setMethod("${1:generic}", ${2:class}, function(${2:x, ...}) {
+		${0}
+	})
+
+snippet sc
+	setClass("${1:Class}", slots = c(${2:name = "type"}))
+
+snippet if
+	if (${1:condition}) {
+		${0}
+	}
+
+snippet el
+	else {
+		${0}
+	}
+
+snippet ei
+	else if (${1:condition}) {
+		${0}
+	}
+
+snippet fun
+	${1:name} <- function(${2:variables}) {
+		${0}
+	}
+
+snippet for
+	for (${1:variable} in ${2:vector}) {
+		${0}
+	}
+
+snippet while
+	while (${1:condition}) {
+		${0}
+	}
+
+snippet switch
+	switch (${1:object},
+		${2:case} = ${3:action}
+	)
+
+snippet apply
+	apply(${1:array}, ${2:margin}, ${3:...})
+
+snippet lapply
+	lapply(${1:list}, ${2:function})
+
+snippet sapply
+	sapply(${1:list}, ${2:function})
+
+snippet mapply
+	mapply(${1:function}, ${2:...})
+
+snippet tapply
+	tapply(${1:vector}, ${2:index}, ${3:function})
+
+snippet vapply
+	vapply(${1:list}, ${2:function}, FUN.VALUE = ${3:type}, ${4:...})
+
+snippet rapply
+	rapply(${1:list}, ${2:function})
+
+snippet ts
+	`r paste("#", date(), "------------------------------\n")`
+
+snippet shinyapp
+	library(shiny)
+	
+	ui <- fluidPage(
+	  ${0}
+	)
+	
+	server <- function(input, output, session) {
+	  
+	}
+	
+	shinyApp(ui, server)
+

@@ -1,0 +1,47 @@
+---
+title: 基因分子表型 #首页PPT的大标题
+subtitle: 我们猜测是 #首页PPT的小标题
+author: 肖云
+institute: 哈尔滨医科大学生物信息XTeam
+fontsize: 10pt
+output:
+ ioslides_presentation:
+    smaller: true
+ beamer_presentation:
+    keep_tex: true
+    slide_level: 2
+#----------------------
+# 注意：## 代表开始一个新的slide，其他的与markdown的使用规则类似
+# 帮助网址：http://210.46.85.145/showtopic-2185.aspx
+# 按键：w 宽窄；f全屏；o浏览；
+# 文件地址：D:\Program Files\RStudio\resources\templates\r_markdown_v2_presentation.Rmd
+##------------------------- Snippets提示帮助 ----------------------------##
+# anno: 不同的注释方式    out: 输出相关
+# Enrich: 各种富集分析
+# ID: 负责ID转换
+##-----------------------------------------------------------------------##
+---
+
+## 基因表达谱
+
+我们的结果表明:
+
+1. 什么什么
+2. 和什么什么吗
+
+那么你预期的结果
+
+- 什么什么
+- 和什么什么吗
+
+## 转录表达谱
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## 画个图吧
+
+```{r pressure}
+plot(pressure)
+```

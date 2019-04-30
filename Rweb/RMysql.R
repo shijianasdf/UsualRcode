@@ -1,0 +1,7 @@
+library(DBI)
+library(RMySQL)
+mysqlconnection <- dbConnect(MySQL(), user = 'root', password = '123456', dbname = 'daec',host = 'localhost')
+dbListTables(mysqlconnection)
+result <-  dbSendQuery(mysqlconnection, "select * from diseaseenhancer")
+data.frame = fetch(result, n = 5)
+state <- dbDisconnect(mysqlconnection)
