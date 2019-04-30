@@ -31,6 +31,8 @@
 #bioinformatics resource
 ##------------------------------------------
 #http://genomicsclass.github.io/book/
+#https://bioconductor.github.io/BiocWorkshops/
+#http://kasperdanielhansen.github.io/genbioconductor/
 #https://www.youtube.com/results?search_query=bioconductor
 #http://www.youtube.com/user/RafalabChannel?feature=watch
 #http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual
