@@ -43,6 +43,7 @@
 #http://watson.nci.nih.gov/~sdavis/
 #https://bioinformatics.ca/
 #biostar SEQanwsers
+#https://github.com/hbctraining
 #简书，知乎
 #生信自学网
 #腾讯课堂，网易云课
