@@ -10,3 +10,6 @@
 #(logist) AND "https://github"
 #(RNA-seq OR RNAseq) AND (ceRNA) AND "https://github"
 #(SNP6.0) AND "https://github"
+
+
+#学会利用google 图片反向搜索
