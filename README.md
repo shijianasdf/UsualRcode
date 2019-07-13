@@ -9,7 +9,7 @@ https://github.com/jmzeng1314
 
 https://github.com/YTLogos
 
-https://github.com/huangwb8
+https://github.com/huangwb8 ：lucky BasicBioinformaticsAnalysisFromZhongShan
 
 https://github.com/crazyhottommy
 
