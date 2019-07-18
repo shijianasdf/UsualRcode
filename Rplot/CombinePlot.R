@@ -240,7 +240,7 @@
   g4 <- ggplot(ToothGrowth, aes(x=dose, y=len)) + 
           geom_violin()+stat_summary(fun.y=mean, geom="point", shape=23, size=2)+ 
           geom_dotplot(binaxis='y', stackdir='center', dotsize=1)
-  grid.arrange(g1,g2,g3,g4,ncol=2,nrow=2)
+  grid.arrange(g1,g2,g3,g4,ncol=2,nrow=2,newpage = TRUE)
 }
 
 
