@@ -10,6 +10,28 @@ a <- unclass(table(filtered.new.table[,i], filtered.new.table[,j]));#table接收
 fisher.test(a)$p.value;
 fisher.test(matrix(c(12,14,23,34),nrow=2),alternative="greater");
 fisher.test(matrix(c(12,14,23,34),nrow=2),alternative="greater");
+
+table(nhefs.adjust.nNA$overweight,
+       nhefs.adjust.nNA$sex,
+       dnn = c("overweight","sex"))
+#          sex
+#overweight   0   1
+#         0 407 535
+#         1 419 295
+fisher.test(table(nhefs.adjust.nNA$overweight,
+                   nhefs.adjust.nNA$sex,
+                   dnn = c("overweight","sex")))
+#Fisher's Exact Test for Count Data
+
+#data:  
+#p-value = 5.145e-10
+#alternative hypothesis: true odds ratio is not equal to 1
+#95 percent confidence interval:
+# 0.4376387 0.6554322
+#sample estimates:
+#odds ratio 
+# 0.5358085 
+
 # chisq.test
 chisq.test(matrix(c(12,14,23,34),nrow=2));
 chisq.test(a)$p.value; #上面的表格
