@@ -8,6 +8,7 @@
 #git svn 版本控制系统
 #Chrono 谷歌下载管理器
 #掘金，scholarscope，医学文献助手  wappalyzer whatruns (30 seconds of knowledges) vip视频解析 Wap Scraper 谷歌插件
+#30 Seconds of Knowledge;Diigo Web Collector - Capture and Annotate3.4.3;
 #护眼宝
 #Navicat Mysqlworkbench  Mysql GUI
 #eclipse Apache Tomcat 
