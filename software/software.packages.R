@@ -7,8 +7,8 @@
 #Xmind思维导图 coggle
 #git svn 版本控制系统
 #Chrono 谷歌下载管理器
-#掘金，scholarscope，医学文献助手  wappalyzer whatruns (30 seconds of knowledges) vip视频解析 Wap Scraper 谷歌插件
-#30 Seconds of Knowledge;Diigo Web Collector - Capture and Annotate3.4.3;
+#掘金，scholarscope，医学文献助手，pubmedplus, wappalyzer, whatruns, (30 seconds of knowledges), vip视频解析, Wap Scraper, octotree,谷歌插件
+#30 Seconds of Knowledge;Diigo Web Collector - Capture and Annotate3.4.3,enhanced github,onetab,插件大师,谷歌访问助手,油猴;
 #护眼宝
 #Navicat Mysqlworkbench  Mysql GUI
 #eclipse Apache Tomcat 
