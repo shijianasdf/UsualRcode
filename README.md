@@ -22,3 +22,5 @@ https://github.com/genomicsclass/labs ：哈佛大学
 https://github.com/ekg/alignment-and-variant-calling-tutorial
 
 https://github.com/mikelove/bioc-f1000r/blob/master/bioc-f1000r.tsv  f1000 workflow
+
+ezfun 和 clintable 两个临床分析常用函数集合
