@@ -25,4 +25,4 @@ https://github.com/mikelove/bioc-f1000r/blob/master/bioc-f1000r.tsv  f1000 workf
 
 ezfun 和 clintable 两个临床分析常用函数集合
 
-https://github.com/john-guerra d3.js可视化
+https://github.com/john-guerra d3.js可视化 navio
