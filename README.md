@@ -15,7 +15,9 @@ https://github.com/crazyhottommy  大神
 
 https://github.com/rkhetani ：哈佛大学教授
 
-https://github.com/hbctraining :哈佛大学
+https://github.com/hbctraining : Teaching materials at the Harvard Chan Bioinformatics Core
+
+https://github.com/hbctraining/In-depth-NGS-Data-Analysis-Course : In-depth NGS Data Analysis Course
 
 https://github.com/genomicsclass/labs ：哈佛大学
 
