@@ -30,3 +30,6 @@ ezfun 和 clintable 两个临床分析常用函数集合
 https://github.com/john-guerra d3.js可视化 navio
 
 https://github.com/likelet?tab=repositories circRNApipe
+
+
+bioinformatics-pipeline bioinformatics rna-seq circrna rna-seq-data rna-seq-analysis rna-seq-pipeline gene-expression circrnas circular-rna transcriptomics circseq
