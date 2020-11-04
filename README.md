@@ -31,5 +31,6 @@ https://github.com/john-guerra d3.js可视化 navio
 
 https://github.com/likelet?tab=repositories circRNApipe
 
+https://github.com/gerstung-lab 基因组分析实验室
 
 bioinformatics-pipeline bioinformatics rna-seq circrna rna-seq-data rna-seq-analysis rna-seq-pipeline gene-expression circrnas circular-rna transcriptomics circseq
