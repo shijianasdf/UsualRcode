@@ -1,5 +1,5 @@
 # UsualRcode
-bioinformatics R code
+bioinformatics R test code
 
 https://github.com/Ming-Lian :免疫学相关知识以及各种测序数据的处理流程，其中MeRIP-seq处理很经典
 
