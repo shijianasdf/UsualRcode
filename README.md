@@ -17,7 +17,7 @@ https://github.com/crazyhottommy  此乃大神，整合几乎所有生信分析�
 
 https://github.com/tgirke/systemPipeR  RNA-seq和chip-seq处理分析toolkit，功能很强大，组长大量代码都是从这里扒来的，并且tgirke做了大量生信分析的教程，网址如下https://girke.bioinformatics.ucr.edu/GEN242/
 
-
+https://github.com/shijianasdf/XSLab-docs  刘小乐上海实验室
 
 https://github.com/rkhetani ：哈佛大学教授
 
