@@ -33,6 +33,8 @@ https://github.com/shijianasdf/ezfun 和 https://github.com/shijianasdf/clintabl
 
 https://github.com/john-guerra d3.js可视化 navio
 
+https://github.com/biojs  BioJS is an open-source project for bioinformatics data on the web. Its goal is to develop an open-source library of JavaScript components to visualise biological data. 
+
 https://github.com/likelet?tab=repositories circRNApipe
 
 https://github.com/gerstung-lab 基因组分析实验室
