@@ -11,7 +11,7 @@ https://github.com/YTLogos
 
 https://github.com/huangwb8 ：lucky BasicBioinformaticsAnalysisFromZhongShan
 
-https://github.com/crazyhottommy  大神，整合几乎所有生信分析的pipeline，以及相关领域的研究成果和动态，关注他就可以了
+https://github.com/crazyhottommy  此乃大神，整合几乎所有生信分析的pipeline，以及相关领域的研究成果和科研动态，每个项目必属精品
 
 https://github.com/tgirke/systemPipeR  RNA-seq和chip-seq处理分析toolkit，功能很强大，组长大量代码都是从这里扒来的，并且tgirke做了大量生信分析的教程，网址如下https://girke.bioinformatics.ucr.edu/GEN242/
 
