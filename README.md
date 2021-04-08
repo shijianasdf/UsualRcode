@@ -3,6 +3,8 @@ bioinformatics R test code
 
 https://github.com/Ming-Lian :免疫学相关知识以及各种测序数据的处理流程，其中MeRIP-seq处理很经典
 
+https://github.com/shijianasdf/GREP2 R+shell pipeline搭建
+
 https://github.com/mlr-org  R语言机器学习集大成者
 
 https://github.com/xuzhougeng
