@@ -19,3 +19,4 @@ res <- RWR(DD.chem.data, ind.pos, tmax = 5, gamma=0.8);
 library(igraph)
 data_stru<-graph.data.frame(data)
 get.adjacency(data_stru, attr="weight")
+as_adjacency_matrix(data_stru, attr="weight")
