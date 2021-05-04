@@ -14,3 +14,8 @@ res <- RWR(DD.chem.data, ind.pos, tmax = 2);
 res <- RWR(DD.chem.data, ind.pos, tmax = 5000, eps=1e-6);
 # 5 steps and higher gamma
 res <- RWR(DD.chem.data, ind.pos, tmax = 5, gamma=0.8);
+
+#创建网络,根据网络获取邻接矩阵
+library(igraph)
+data_stru<-graph.data.frame(data)
+get.adjacency(data_stru, attr="weight")
