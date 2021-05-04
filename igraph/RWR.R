@@ -1,5 +1,6 @@
 #重启动随机游走
 install.packages("RANKS")
+install.packages("bionetdata")
 library(RANKS)
 library(bionetdata);
 data(DD.chem.data);
