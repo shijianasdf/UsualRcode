@@ -1,4 +1,4 @@
-#重启动随机游走
+#重启动随机游走 {\RANKS<\RWR>}
 install.packages("RANKS")
 install.packages("bionetdata")
 library(RANKS)
