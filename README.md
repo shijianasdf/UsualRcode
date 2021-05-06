@@ -3,7 +3,7 @@ bioinformatics R test code
 
 https://github.com/compbiomed/singleCellTK  单细胞RNA-seq数据分析代码库
 
-https://github.com/ShixiangWang/sigminer 基因组mutation signature analysis
+https://github.com/ShixiangWang/sigminer 基因组mutation signature analysis代码库
 
 https://github.com/icbi-lab  Institute of Bioinformatics @ Medical University of Innsbruck
 
