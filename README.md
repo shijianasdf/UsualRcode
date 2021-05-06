@@ -15,7 +15,7 @@ https://github.com/Ming-Lian :免疫学相关知识以及各种测序数据的�
 
 https://github.com/rnabioco?page=1 RNA Bioscience Initiative
 
-https://github.com/shijianasdf/GREP2 R+shell pipeline搭建
+https://github.com/shijianasdf/GREP2 R+shell RNA-seq pipeline搭建
 
 https://github.com/shijianasdf/Rnaseq 别人开发的RNA-seq处理分析包
 
