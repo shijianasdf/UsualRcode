@@ -7,6 +7,8 @@ https://github.com/ShixiangWang/sigminer 基因组mutation signature analysis代
 
 https://github.com/icbi-lab  Institute of Bioinformatics @ Medical University of Innsbruck
 
+https://github.com/rohitsuratekar/CardioPipeLine SnakeMake python RNA-seq pipeline
+
 https://github.com/NWPU-903PR/m6Aexpress 
 
 https://github.com/DongqiangZeng0808/Blasso
