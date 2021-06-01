@@ -7,6 +7,10 @@ https://github.com/ShixiangWang/sigminer 基因组mutation signature analysis代
 
 https://github.com/Niinleslie/MesKit  A tool kit for dissecting cancer evolution from multi-region derived tumor biopsies via somatic mutations
 
+https://github.com/mireia-bioinfo/pipelineNGS R代码封装的CHIP-seq处理流程
+
+https://github.com/xlucpu/MOVICS  Multi-Omics integration and VIsualization in Cancer Subtyping
+
 https://github.com/icbi-lab  Institute of Bioinformatics @ Medical University of Innsbruck
 
 https://github.com/rohitsuratekar/CardioPipeLine SnakeMake python RNA-seq pipeline
