@@ -9,6 +9,8 @@ https://github.com/Niinleslie/MesKit  A tool kit for dissecting cancer evolution
 
 https://github.com/mireia-bioinfo/pipelineNGS R代码封装的CHIP-seq处理流程
 
+https://github.com/shijianasdf/meowmics R表观组学数据分析
+
 https://github.com/xlucpu/MOVICS  Multi-Omics integration and VIsualization in Cancer Subtyping
 
 https://github.com/icbi-lab  Institute of Bioinformatics @ Medical University of Innsbruck
