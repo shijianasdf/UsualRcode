@@ -243,8 +243,109 @@
   grid.arrange(g1,g2,g3,g4,ncol=2,nrow=2,newpage = TRUE)
 }
 
-
-
+方法patchwork
+{
+ # 造数据
+genes <- c("CD52","ITGAX","HLA-DRA","CD1C","XCR1","CLE9A","THBD","CD14","S100A8","S100A9")
+expression <- sample(0:20,1000,replace = T)
+group <- c("MNP-a","MNP-b","MNP-c","MNP-d","cDC1","cDC2",
+           "Maphage 1","Maphage 2","Monocyte")
+df1 <- data.frame(gene=rep("CD52",100),expression=expression[1:100],
+                  group=sample(group,100,replace = T))
+df2 <- data.frame(gene=rep("ITGAX",100),expression=expression[101:200],
+                  group=sample(group,100,replace = T))
+df3 <- data.frame(gene=rep("HLA-DRA",100),expression=expression[201:300],
+                  group=sample(group,100,replace = T))
+df4 <- data.frame(gene=rep("CD1C",100),expression=expression[301:400],
+                  group=sample(group,100,replace = T))
+df5 <- data.frame(gene=rep("XCR1",100),expression=expression[401:500],
+                  group=sample(group,100,replace = T))
+df6 <- data.frame(gene=rep("CLE9A",100),expression=expression[501:600],
+                  group=sample(group,100,replace = T))
+df7 <- data.frame(gene=rep("THBD",100),expression=expression[601:700],
+                  group=sample(group,100,replace = T))
+df8 <- data.frame(gene=rep("CD14",100),expression=expression[701:800],
+                  group=sample(group,100,replace = T))
+df9 <- data.frame(gene=rep("S100A8",100),expression=expression[801:900],
+                  group=sample(group,100,replace = T))
+df10 <- data.frame(gene=rep("S100A9",100),expression=expression[901:1000],
+                  group=sample(group,100,replace = T))
+library(ggplot2)
+library(RColorBrewer)
+library(patchwork)
+pdf1 <- ggplot(df1, aes(x=group, y=expression,fill=group)) + 
+          geom_violin(trim=T,show.legend = F)+
+          scale_fill_hue(l=40, c=35)+
+          coord_flip()+
+          xlab("")+ylab("")+
+          theme_pubr()+
+          theme(axis.ticks = element_blank(),axis.text.x = element_blank())
+pdf2 <- ggplot(df2, aes(x=group, y=expression,fill=group)) + 
+  geom_violin(trim=T,show.legend = F)+
+  scale_fill_hue(l=40, c=35)+
+  coord_flip()+
+  xlab("")+ylab("")+
+  theme_pubr()+
+  theme(axis.ticks = element_blank(),axis.text = element_blank())
+pdf3 <- ggplot(df3, aes(x=group, y=expression,fill=group)) + 
+  geom_violin(trim=T,show.legend = F)+
+  scale_fill_hue(l=40, c=35)+
+  coord_flip()+
+  xlab("")+ylab("")+
+  theme_pubr()+
+  theme(axis.ticks = element_blank(),axis.text = element_blank())
+pdf4 <- ggplot(df4, aes(x=group, y=expression,fill=group)) + 
+  geom_violin(trim=T,show.legend = F)+
+  scale_fill_hue(l=40, c=35)+
+  coord_flip()+
+  xlab("")+ylab("")+
+  theme_pubr()+
+  theme(axis.ticks = element_blank(),axis.text = element_blank())
+pdf5 <- ggplot(df5, aes(x=group, y=expression,fill=group)) + 
+  geom_violin(trim=T,show.legend = F)+
+  scale_fill_hue(l=40, c=35)+
+  coord_flip()+
+  xlab("")+ylab("")+
+  theme_pubr()+
+  theme(axis.ticks = element_blank(),axis.text = element_blank())
+pdf6 <- ggplot(df6, aes(x=group, y=expression,fill=group)) + 
+  geom_violin(trim=T,show.legend = F)+
+  scale_fill_hue(l=40, c=35)+
+  coord_flip()+
+  xlab("")+ylab("")+
+  theme_pubr()+
+  theme(axis.ticks = element_blank(),axis.text = element_blank())
+pdf7 <- ggplot(df7, aes(x=group, y=expression,fill=group)) + 
+  geom_violin(trim=T,show.legend = F)+
+  scale_fill_hue(l=40, c=35)+
+  coord_flip()+
+  xlab("")+ylab("")+
+  theme_pubr()+
+  theme(axis.ticks = element_blank(),axis.text = element_blank())
+pdf8 <- ggplot(df8, aes(x=group, y=expression,fill=group)) + 
+  geom_violin(trim=T,show.legend = F)+
+  scale_fill_hue(l=40, c=35)+
+  coord_flip()+
+  xlab("")+ylab("")+
+  theme_pubr()+
+  theme(axis.ticks = element_blank(),axis.text = element_blank())
+pdf9 <- ggplot(df9, aes(x=group, y=expression,fill=group)) + 
+  geom_violin(trim=T,show.legend = F)+
+  scale_fill_hue(l=40, c=35)+
+  coord_flip()+
+  xlab("")+ylab("")+
+  theme_pubr()+
+  theme(axis.ticks = element_blank(),axis.text = element_blank())
+pdf10 <- ggplot(df10, aes(x=group, y=expression,fill=group)) + 
+  geom_violin(trim=T,show.legend = F)+
+  scale_fill_hue(l=40, c=35)+
+  coord_flip()+
+  xlab("")+ylab("")+
+  theme_pubr()+
+  theme(axis.ticks = element_blank(),axis.text = element_blank())
+  
+pdf1 + pdf2 + pdf3 + pdf4 + pdf5 + pdf6 + pdf7 + pdf8 + pdf9 + pdf10 + plot_layout(nrow = 1)
+}
 
 
 
