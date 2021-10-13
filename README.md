@@ -3,6 +3,8 @@ bioinformatics R test code
 
 https://github.com/compbiomed/singleCellTK  单细胞RNA-seq数据分析代码库
 
+https://github.com/chuiqin/irGSEA Integrate all single cell rank-based gene set enrichment analysis and easy to visualize the results.
+
 https://github.com/ShixiangWang/sigminer 基因组mutation signature analysis代码库
 
 https://github.com/Niinleslie/MesKit  A tool kit for dissecting cancer evolution from multi-region derived tumor biopsies via somatic mutations
