@@ -9,6 +9,8 @@ https://github.com/Niinleslie/MesKit  A tool kit for dissecting cancer evolution
 
 https://github.com/mireia-bioinfo/pipelineNGS R代码封装的CHIP-seq处理流程
 
+https://github.com/GenEpi-GenPhySE/epistack epistack软件包的主要目标是可视化基因组轨迹的堆叠（ChIP-seq, ATAC-seq, DNA methyation or genomic conservation data）
+
 https://github.com/shijianasdf/meowmics R表观组学数据分析
 
 https://github.com/statnet R网络分析代码库
