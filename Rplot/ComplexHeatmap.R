@@ -36,3 +36,13 @@ oncoPrint(mat, get_type = function(x) strsplit(x, ";")[[1]],
           heatmap_legend_param = list(title = "Alternations", at = c("AMP", "HOMDEL", "MUT"), 
                                       labels = c("Amplification", "Deep deletion", "Mutation")))
 dim(mat)
+
+library(ComplexHeatmap)
+cols <- colorRampPalette(colors = c("darkblue", "white", "darkred"))(length(c(-5,0,5)))
+col <- circlize::colorRamp2(c(-5,0,5), cols)
+sam_anno <- HeatmapAnnotation(orig.ident = annotation_col$orig.ident)
+p <- Heatmap(t(scale(t(pathway.ssgsea.matrix[sig.pathway[1:183],]))),show_column_names = F, column_split = annotation_col$orig.ident,col=col,top_annotation=sam_anno,row_names_max_width = unit(25, "cm"),row_names_gp = gpar(fontsize = 5,fontface="bold")) 
+draw(p,annotation_legend_side = "left")
+
+
+
