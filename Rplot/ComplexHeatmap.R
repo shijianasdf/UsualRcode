@@ -44,21 +44,21 @@ sam_anno <- HeatmapAnnotation(orig.ident = annotation_col$orig.ident)
 p <- Heatmap(t(scale(t(pathway.ssgsea.matrix[sig.pathway[1:183],]))),show_column_names = F, column_split = annotation_col$orig.ident,col=col,top_annotation=sam_anno,row_names_max_width = unit(25, "cm"),row_names_gp = gpar(fontsize = 5,fontface="bold")) 
 draw(p,annotation_legend_side = "left")
 
-observations.metadata <- sce_merge_res$sce@meta.data[match(colnames(infercnv.observations.matrix),rownames(sce_merge_res$sce@meta.data)),]
-tumour_cell_anno <- rowAnnotation(orig.ident = observations.metadata$orig.ident,celltype=observations.metadata$celltypes)
-col_scale <- rev(RColorBrewer::brewer.pal(9, "RdBu"))
-col_palette <- grDevices::colorRampPalette(col_scale)(n = 50)
-cols <- colorRampPalette(colors = c("darkblue", "white", "darkred"))(length(c(-5,0,5)))
-col <- circlize::colorRamp2(c(-5,0,5), cols)
-p <- Heatmap(t(t(scale(t(infercnv.observations.matrix)))),
+reference.metadata <- sce_merge_res$sce@meta.data[match(colnames(infercnv.reference.matrix),rownames(sce_merge_res$sce@meta.data)),]
+    normal_cell_anno <- rowAnnotation(orig.ident = reference.metadata$orig.ident,celltype=reference.metadata$celltypes)
+    col_scale <- rev(RColorBrewer::brewer.pal(9, "RdBu"))
+    col_palette <- grDevices::colorRampPalette(col_scale)(n = 50)
+    cols <- colorRampPalette(colors = c("darkblue", "white", "darkred"))(length(c(-5,0,5)))
+    col <- circlize::colorRamp2(c(-5,0,5), cols)
+    p <- Heatmap(t(t(scale(t(infercnv.reference.matrix)))), #可视化矩阵（行名以及列名）
                  show_column_names = F, 
                  show_row_names = F,
-                 border = T,
-                 row_split = observations.metadata$celltypes,
+                 border = T, #
+                 row_split = reference.metadata$celltypes, #
                  row_dend_width = unit(20, "mm"),
                  row_title = "cells",
-                 col=col,
+                 col=col, #设置颜色 由circlize::colorRamp2(c(-5,0,5), cols)生成
                  cluster_columns = F,
-                 left_annotation=tumour_cell_anno) 
+                 left_annotation=normal_cell_anno)  #左侧注释bar 由rowAnnotation(orig.ident = reference.metadata$orig.ident,celltype=reference.metadata$celltypes)生成
     draw(p)
 
