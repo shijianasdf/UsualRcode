@@ -45,7 +45,7 @@ p <- Heatmap(t(scale(t(pathway.ssgsea.matrix[sig.pathway[1:183],]))),show_column
 draw(p,annotation_legend_side = "left")
 
 reference.metadata <- sce_merge_res$sce@meta.data[match(colnames(infercnv.reference.matrix),rownames(sce_merge_res$sce@meta.data)),]
-    normal_cell_anno <- rowAnnotation(orig.ident = reference.metadata$orig.ident,celltype=reference.metadata$celltypes)
+    normal_cell_anno <- rowAnnotation(orig.ident = reference.metadata$orig.ident,celltype=reference.metadata$celltypes) 
     col_scale <- rev(RColorBrewer::brewer.pal(9, "RdBu"))
     col_palette <- grDevices::colorRampPalette(col_scale)(n = 50)
     cols <- colorRampPalette(colors = c("darkblue", "white", "darkred"))(length(c(-5,0,5)))
@@ -54,7 +54,7 @@ reference.metadata <- sce_merge_res$sce@meta.data[match(colnames(infercnv.refere
                  show_column_names = F, 
                  show_row_names = F,
                  border = T, #
-                 row_split = reference.metadata$celltypes, #
+                 row_split = reference.metadata$celltypes, #基于哪个指标对矩阵进行拆分，从而基于拆分的子矩阵进行聚类
                  row_dend_width = unit(20, "mm"),
                  row_title = "cells",
                  col=col, #设置颜色 由circlize::colorRamp2(c(-5,0,5), cols)生成
