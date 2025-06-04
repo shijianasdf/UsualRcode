@@ -3,10 +3,12 @@ install.packages("devtools")
 install.packages(c('plyr','pacman','ggplot2','ggpubr','RColorBrewer','tuneR','readr','progress','dplyr'))
 install.packages('WGCNA')
 install.packages(c("FactoMineR", "factoextra","XML","glmnet","maxstat","rvest"))
+devtools::install_github("GfellerLab/EPIC", build_vignettes=TRUE)
 
 options()$repos 
 options()$BioC_mirror
 options(BioC_mirror="https://mirrors.ustc.edu.cn/bioc/")
+options(BioC_mirror="http://mirrors.tuna.tsinghua.edu.cn/bioconductor/")
 options("repos" = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
 options()$repos 
 options()$BioC_mirror
