@@ -17,7 +17,7 @@ install.packages(c("FactoMineR", "factoextra","XML","glmnet","maxstat","rvest","
                    "ggraph","tidygraph","tidytext","tidyverse","plotly","shiny","shinyjs","shinyBS","shinyWidgets",
                    "shinycssloaders","shinythemes","DT","visNetwork","networkD3","DiagrammeR",
                    "rmarkdown","knitr"))
-install.packages(c("ggtreeExtra","ggtree","ggtreeAssist","ggtreeExtra","ggtreeify","ggtreeLayout","ggtreeify","ggtreeDendro","ggtreeGrob",
+install.packages(c("ggtreeExtra","ggtree","ggtreeAssist","ggtreeExtra","ggtreeify","ggtreeLayout","ggtreeify","ggtreeDendro","ggtreeGrob")
 devtools::install_github("GfellerLab/EPIC", build_vignettes=TRUE)
 devtools::install_github("IOBR/IOBR", build_vignettes=TRUE)
 devtools::install_github("GreenleafLab/chromVARmotifs")
