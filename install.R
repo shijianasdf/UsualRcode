@@ -17,12 +17,13 @@ install.packages(c("FactoMineR", "factoextra","XML","glmnet","maxstat","rvest","
                    "ggraph","tidygraph","tidytext","tidyverse","plotly","shiny","shinyjs","shinyBS","shinyWidgets",
                    "shinycssloaders","shinythemes","DT","visNetwork","networkD3","DiagrammeR",
                    "rmarkdown","knitr"))
-install.packages(c("ggtreeExtra","ggtree","ggtreeAssist","ggtreeExtra","ggtreeify","ggtreeLayout","ggtreeify","ggtreeDendro","ggtreeGrob")
+install.packages(c("ggtreeExtra","ggtree","ggtreeAssist","ggtreeExtra","ggtreeify","ggtreeLayout","ggtreeify","ggtreeDendro","ggtreeGrob"))
 devtools::install_github("GfellerLab/EPIC", build_vignettes=TRUE)
 devtools::install_github("IOBR/IOBR", build_vignettes=TRUE)
 devtools::install_github("GreenleafLab/chromVARmotifs")
 devtools::install_github("digitalcytometry/cytotrace2", subdir = "cytotrace2_r")
 devtools::install_github("GreenleafLab/ArchR", ref="master", repos = BiocManager::repositories())
+devtools::install_github("immunogenomics/presto")
 
 # https://bioconductor.org/packages/release/bioc/html/GEOquery.html
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -40,7 +41,9 @@ BiocManager::install(c("biomaRt","sva","GO.db"),ask = F,update = F)
 BiocManager::install(c('monocle3','Signac',"cicero","JASPAR2020","TFBSTools",
                        "BSgenome.Hsapiens.UCSC.hg38","EnsDb.Hsapiens.v86","chromVAR",
                        "ChIPseeker","SingleCellExperiment","NMF","scater","SC3"),ask = F,update = F)
+BiocManager::install(c("motifmatchr","harmony"),ask = F,update = F)
 
+library(ArchR)
 library(Signac)
 library(cicero)
 library(data.table)
@@ -93,6 +96,9 @@ library(ggsci)
 library(NMF)
 library(SingleCellExperiment)
 library(scater)
+
+
+
 
 
 
