@@ -22,6 +22,8 @@ devtools::install_github("GfellerLab/EPIC", build_vignettes=TRUE)
 devtools::install_github("IOBR/IOBR", build_vignettes=TRUE)
 devtools::install_github("GreenleafLab/chromVARmotifs")
 devtools::install_github("digitalcytometry/cytotrace2", subdir = "cytotrace2_r")
+devtools::install_github("GreenleafLab/ArchR", ref="master", repos = BiocManager::repositories())
+
 # https://bioconductor.org/packages/release/bioc/html/GEOquery.html
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
