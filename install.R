@@ -12,15 +12,16 @@ options()$BioC_mirror
 install.packages("devtools","remotes","BiocManager")
 install.packages(c('tibble','plyr','pacman','ggplot2','ggpubr','RColorBrewer','tuneR','readr','progress','dplyr','data.table','magrittr','ggplotify',
                    'stringr','reshape2','tidyr','ggsignif','ggrepel','ggthemes','ggsci','ggExtra','ggforce','cowplot','patchwork'))
-install.packages('WGCNA','e1071', 'preprocessCore',"ppcor",  "timeROC", "pracma",'survival', 'survminer',"caret",'pROC')
+install.packages('WGCNA','e1071', 'preprocessCore',"ppcor",  "timeROC", "pracma",'survival', 'survminer',"caret",'pROC','umap')
 install.packages(c("FactoMineR", "factoextra","XML","glmnet","maxstat","rvest","caret","pheatmap","ComplexHeatmap","circlize","ggdendro","ggtree","igraph",
-                   "ggraph","tidygraph","tidyverse","plotly","shiny","shinyjs","shinyBS","shinyWidgets",
+                   "ggraph","tidygraph","tidytext","tidyverse","plotly","shiny","shinyjs","shinyBS","shinyWidgets",
                    "shinycssloaders","shinythemes","DT","visNetwork","networkD3","DiagrammeR",
                    "rmarkdown","knitr"))
 install.packages(c("ggtreeExtra","ggtree","ggtreeAssist","ggtreeExtra","ggtreeify","ggtreeLayout","ggtreeify","ggtreeDendro","ggtreeGrob",
 devtools::install_github("GfellerLab/EPIC", build_vignettes=TRUE)
 devtools::install_github("IOBR/IOBR", build_vignettes=TRUE)
-
+devtools::install_github("GreenleafLab/chromVARmotifs")
+devtools::install_github("digitalcytometry/cytotrace2", subdir = "cytotrace2_r")
 # https://bioconductor.org/packages/release/bioc/html/GEOquery.html
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
@@ -34,7 +35,7 @@ BiocManager::install(c("TxDb.Mmusculus.UCSC.mm10.knownGene","org.Mm.eg.db","TxDb
 BiocManager::install(c('Seurat','monocle'),ask = F,update = F)
 BiocManager::install(c('destiny','scRNAseq','dbscan','M3Drop','flexclust','mcclust'),ask = F,update = F)
 BiocManager::install(c("biomaRt","sva","GO.db"),ask = F,update = F)
-BiocManager::install(c('monocle3','CytoTRACE','Signac',"cicero","JASPAR2020","TFBSTools","chromVARmotifs",
+BiocManager::install(c('monocle3','Signac',"cicero","JASPAR2020","TFBSTools",
                        "BSgenome.Hsapiens.UCSC.hg38","EnsDb.Hsapiens.v86","chromVAR",
                        "ChIPseeker","SingleCellExperiment","NMF","scater","SC3"),ask = F,update = F)
 
@@ -68,6 +69,7 @@ library(dittoSeq)
 library(scCustomize)
 library(Seurat)
 library(CytoTRACE)
+library(CytoTRACE2)
 library(stringr)
 library(ChIPseeker)
 library(TxDb.Hsapiens.UCSC.hg38.knownGene)
@@ -89,3 +91,6 @@ library(ggsci)
 library(NMF)
 library(SingleCellExperiment)
 library(scater)
+
+
+
