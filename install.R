@@ -28,7 +28,7 @@ devtools::install_github("immunogenomics/presto")
 # https://bioconductor.org/packages/release/bioc/html/GEOquery.html
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
-BiocManager::install("KEGG.db","dittoSeq","scCustomize"ask = F,update = F)
+BiocManager::install(c("KEGG.db","dittoSeq","scCustomize"),ask = F,update = F)
 BiocManager::install(c("GSEABase","GSVA","clusterProfiler","GenomicRanges","GenomicFeatures","GenomicAlignments"),ask = F,update = F)
 BiocManager::install(c("GEOquery","limma","impute" ),ask = F,update = F)
 BiocManager::install(c("genefu","org.Hs.eg.db","hgu133plus2.db" ),ask = F,update = F)
