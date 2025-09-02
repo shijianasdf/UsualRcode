@@ -24,6 +24,10 @@ devtools::install_github("GreenleafLab/chromVARmotifs")
 devtools::install_github("digitalcytometry/cytotrace2", subdir = "cytotrace2_r")
 devtools::install_github("GreenleafLab/ArchR", ref="master", repos = BiocManager::repositories())
 devtools::install_github("immunogenomics/presto")
+remotes::install_github('chris-mcginnis-ucsf/DoubletFinder', force = TRUE)
+devtools::install_github("immunogenomics/harmony", build_vignettes=TRUE)
+#下载到服务器，然后用install_local()来安装
+devtools::install_local("PATH/TO/DIRECTORY/CytoTRACE_0.3.3.tar.gz")
 
 # https://bioconductor.org/packages/release/bioc/html/GEOquery.html
 if (!requireNamespace("BiocManager", quietly = TRUE))
