@@ -5,7 +5,6 @@ options(BioC_mirror="https://mirrors.ustc.edu.cn/bioc/")
 options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor/")
 options("repos" = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
 options(BioC_mirror="https://mirrors.westlake.edu.cn/bioconductor")
-options(BioC_mirror="https://mirrors.ustc.edu.cn/bioc/")
 utils::setRepositories(ind=1:2)
 options()$repos 
 options()$BioC_mirror
