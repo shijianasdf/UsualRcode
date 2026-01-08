@@ -32,6 +32,7 @@ devtools::install_github('satijalab/seurat-data')
 remotes::install_github('satijalab/seurat-wrappers')
 remotes::install_github("mojaveazure/seurat-disk")
 devtools::install_github("aertslab/SCopeLoomR")
+devtools::install_github(ref = 'mojaveazure/loomR')
 
 #下载到服务器，然后用install_local()来安装
 devtools::install_local("PATH/TO/DIRECTORY/CytoTRACE_0.3.3.tar.gz")
