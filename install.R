@@ -28,6 +28,11 @@ devtools::install_github("GreenleafLab/ArchR", ref="master", repos = BiocManager
 devtools::install_github("immunogenomics/presto")
 remotes::install_github('chris-mcginnis-ucsf/DoubletFinder', force = TRUE)
 devtools::install_github("immunogenomics/harmony", build_vignettes=TRUE)
+devtools::install_github('satijalab/seurat-data')
+remotes::install_github('satijalab/seurat-wrappers')
+remotes::install_github("mojaveazure/seurat-disk")
+devtools::install_github("aertslab/SCopeLoomR")
+
 #下载到服务器，然后用install_local()来安装
 devtools::install_local("PATH/TO/DIRECTORY/CytoTRACE_0.3.3.tar.gz")
 
