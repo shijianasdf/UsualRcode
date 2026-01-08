@@ -14,7 +14,7 @@ options()$BioC_mirror
 install.packages("devtools","remotes","BiocManager")
 install.packages(c('tibble','plyr','pacman','ggplot2','ggpubr','RColorBrewer','tuneR','readr','progress','dplyr','data.table','magrittr','ggplotify',"purrr","linkET","correlate","corrplot","psych","GGally",
                    'stringr','reshape2','tidyr','ggsignif','ggrepel','ggthemes','ggsci','ggExtra','ggforce','cowplot','patchwork',"aplot","ggalign","ggsankey"))
-install.packages(c('WGCNA','e1071', 'preprocessCore',"ppcor",  "timeROC", "pracma",'survival', 'survminer',"caret",'pROC','umap',"clustree"))
+install.packages(c('WGCNA','e1071', 'preprocessCore',"ppcor",  "timeROC", "pracma",'survival', 'survminer',"caret",'pROC','umap',"clustree","rstatix"))
 install.packages(c("FactoMineR", "factoextra","XML","glmnet","maxstat","rvest","caret","pheatmap","ComplexHeatmap","circlize","ggdendro","ggtree","igraph",
                    "ggraph","tidygraph","tidytext","tidyverse","plotly","shiny","shinyjs","shinyBS","shinyWidgets",
                    "shinycssloaders","shinythemes","DT","visNetwork","networkD3","DiagrammeR",
