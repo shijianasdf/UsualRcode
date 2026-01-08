@@ -19,7 +19,7 @@ install.packages(c("FactoMineR", "factoextra","XML","glmnet","maxstat","rvest","
                    "ggraph","tidygraph","tidytext","tidyverse","plotly","shiny","shinyjs","shinyBS","shinyWidgets",
                    "shinycssloaders","shinythemes","DT","visNetwork","networkD3","DiagrammeR",
                    "rmarkdown","knitr"))
-install.packages(c("ggtreeExtra","ggtree","ggtreeAssist","ggtreeify","ggtreeLayout","ggtreeify","ggtreeDendro","ggtreeGrob"))
+
 devtools::install_github("GfellerLab/EPIC", build_vignettes=TRUE)
 devtools::install_github("IOBR/IOBR", build_vignettes=TRUE)
 devtools::install_github("GreenleafLab/chromVARmotifs")
@@ -34,10 +34,8 @@ remotes::install_github("mojaveazure/seurat-disk")
 devtools::install_github("aertslab/SCopeLoomR")
 devtools::install_github('mojaveazure/loomR')
 devtools::install_github('smorabit/hdWGCNA', ref='dev')
-
 #下载到服务器，然后用install_local()来安装
 devtools::install_local("PATH/TO/DIRECTORY/CytoTRACE_0.3.3.tar.gz")
-
 # https://bioconductor.org/packages/release/bioc/html/GEOquery.html
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
@@ -55,7 +53,8 @@ BiocManager::install(c('monocle3','Signac',"cicero","JASPAR2020","TFBSTools",
                        "BSgenome.Hsapiens.UCSC.hg38","EnsDb.Hsapiens.v86","chromVAR",
                        "ChIPseeker","SingleCellExperiment","NMF","scater","SC3"),ask = F,update = F)
 BiocManager::install(c("motifmatchr","harmony"),ask = F,update = F)
-
+BiocManager::install(c("ggtreeExtra","ggtree","ggtreeAssist","ggtreeify","ggtreeLayout","ggtreeify","ggtreeDendro","ggtreeGrob"),ask = F,update = F)
+                     
 library(ArchR)
 library(Signac)
 library(cicero)
