@@ -19,6 +19,7 @@ install.packages(c("FactoMineR", "factoextra","XML","glmnet","maxstat","rvest","
                    "ggraph","tidygraph","tidytext","tidyverse","plotly","shiny","shinyjs","shinyBS","shinyWidgets",
                    "shinycssloaders","shinythemes","DT","visNetwork","networkD3","DiagrammeR",
                    "rmarkdown","knitr"))
+install.packages("mlr3")
 
 devtools::install_github("GfellerLab/EPIC", build_vignettes=TRUE)
 devtools::install_github("IOBR/IOBR", build_vignettes=TRUE)
