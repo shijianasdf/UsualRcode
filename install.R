@@ -34,6 +34,7 @@ remotes::install_github("mojaveazure/seurat-disk")
 devtools::install_github("aertslab/SCopeLoomR")
 devtools::install_github('mojaveazure/loomR')
 devtools::install_github('smorabit/hdWGCNA', ref='dev')
+devtools::install_github("velocyto-team/velocyto.R")
 
 #下载到服务器，然后用install_local()来安装
 devtools::install_local("PATH/TO/DIRECTORY/CytoTRACE_0.3.3.tar.gz")
