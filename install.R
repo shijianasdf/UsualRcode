@@ -14,7 +14,7 @@ options()$BioC_mirror
 install.packages("devtools","remotes","BiocManager")
 install.packages(c('tibble','plyr','pacman','ggplot2','ggpubr','RColorBrewer','tuneR','readr','progress','dplyr','data.table','magrittr','ggplotify',"purrr","linkET","correlate","corrplot","psych","GGally",
                    'stringr','reshape2','tidyr','ggsignif','ggrepel','ggthemes','ggsci','ggExtra','ggforce','cowplot','patchwork',"aplot","ggalign","ggsankey"))
-install.packages(c('WGCNA','e1071', 'preprocessCore',"ppcor",  "timeROC", "pracma",'survival', 'survminer',"caret",'pROC','umap',"clustree","rstatix"))
+install.packages(c('WGCNA','e1071', 'preprocessCore',"ppcor",  "timeROC", "pracma",'survival', 'survminer',"caret",'pROC','umap',"clustree","rstatix","harmony"))
 install.packages(c("FactoMineR", "factoextra","XML","glmnet","maxstat","rvest","caret","pheatmap","ComplexHeatmap","circlize","ggdendro","ggtree","igraph",
                    "ggraph","tidygraph","tidytext","tidyverse","plotly","shiny","shinyjs","shinyBS","shinyWidgets",
                    "shinycssloaders","shinythemes","DT","visNetwork","networkD3","DiagrammeR",
@@ -34,6 +34,7 @@ remotes::install_github("mojaveazure/seurat-disk")
 devtools::install_github("aertslab/SCopeLoomR")
 devtools::install_github('mojaveazure/loomR')
 devtools::install_github('smorabit/hdWGCNA', ref='dev')
+
 #下载到服务器，然后用install_local()来安装
 devtools::install_local("PATH/TO/DIRECTORY/CytoTRACE_0.3.3.tar.gz")
 # https://bioconductor.org/packages/release/bioc/html/GEOquery.html
@@ -52,9 +53,10 @@ BiocManager::install(c("biomaRt","sva","GO.db"),ask = F,update = F)
 BiocManager::install(c('monocle3','Signac',"cicero","JASPAR2020","TFBSTools",
                        "BSgenome.Hsapiens.UCSC.hg38","BSgenome.Mmusculus.UCSC.mm39","EnsDb.Mmusculus.v79","EnsDb.Hsapiens.v86","chromVAR",
                        "ChIPseeker","SingleCellExperiment","NMF","scater","SC3"),ask = F,update = F)
-BiocManager::install(c("motifmatchr","harmony"),ask = F,update = F)
+BiocManager::install(c("motifmatchr"),ask = F,update = F)
 BiocManager::install(c("ggtreeExtra","ggtree","ggtreeAssist","ggtreeify","ggtreeLayout","ggtreeify","ggtreeDendro","ggtreeGrob"),ask = F,update = F)
-BiocManager::install("progeny","AUCell")                  
+BiocManager::install("progeny","AUCell")    
+BiocManager::install("kstreet13/slingshot")
 library(ArchR)
 library(Signac)
 library(cicero)
