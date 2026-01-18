@@ -20,6 +20,7 @@ install.packages(c("FactoMineR", "factoextra","XML","glmnet","maxstat","rvest","
                    "shinycssloaders","shinythemes","DT","visNetwork","networkD3","DiagrammeR",
                    "rmarkdown","knitr"))
 install.packages("mlr3")
+install.packages("vroom")
 
 devtools::install_github("GfellerLab/EPIC", build_vignettes=TRUE)
 devtools::install_github("IOBR/IOBR", build_vignettes=TRUE)
