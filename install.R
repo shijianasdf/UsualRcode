@@ -44,6 +44,8 @@ devtools::install_github("wu-yc/scMetabolism")
 devtools::install_github("binderh/CoxBoost")
 devtools::install_github("souravc83/fastAdaboost")
 devtools::install_github("l-magnificence/Mime")
+devtools::install_github("YuLab-SMU/tigeR")
+
 
 #下载到服务器，然后用install_local()来安装
 devtools::install_local("PATH/TO/DIRECTORY/CytoTRACE_0.3.3.tar.gz")
@@ -69,7 +71,7 @@ BiocManager::install("progeny","AUCell")
 BiocManager::install("kstreet13/slingshot")
 BiocManager::install("pcaMethods","maftools")
 BiocManager::install(c('cancerclass', 'mixOmics', 'sparrow'),update = FALSE)
-
+BiocManager::install("ExperimentHub")
 
 library(ArchR)
 library(Signac)
