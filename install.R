@@ -150,6 +150,7 @@ library(SCpubr)
 library(SCOP)
 library(SCP)
 library(ggsc)
+library(GeneNMF)
 
 
 
