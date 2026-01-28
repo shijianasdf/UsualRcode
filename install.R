@@ -145,6 +145,11 @@ library(forcats)
 library(aplot)
 library(ggalign)
 library(ClusterGVis)
+library(ggSCvis)
+library(SCpubr)
+library(SCOP)
+library(SCP)
+library(ggsc)
 
 
 
