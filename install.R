@@ -45,6 +45,9 @@ devtools::install_github("binderh/CoxBoost")
 devtools::install_github("souravc83/fastAdaboost")
 devtools::install_github("l-magnificence/Mime")
 devtools::install_github("YuLab-SMU/tigeR")
+if (!require("pak", quietly = TRUE)) {
+  install.packages("pak")
+}
 pak::pak("mengxu98/scop")
 
 #下载到服务器，然后用install_local()来安装
