@@ -45,7 +45,7 @@ devtools::install_github("binderh/CoxBoost")
 devtools::install_github("souravc83/fastAdaboost")
 devtools::install_github("l-magnificence/Mime")
 devtools::install_github("YuLab-SMU/tigeR")
-
+pak::pak("mengxu98/scop")
 
 #下载到服务器，然后用install_local()来安装
 devtools::install_local("PATH/TO/DIRECTORY/CytoTRACE_0.3.3.tar.gz")
