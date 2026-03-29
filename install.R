@@ -76,7 +76,7 @@ BiocManager::install("pcaMethods","maftools")
 BiocManager::install(c('cancerclass', 'mixOmics', 'sparrow'),update = FALSE)
 BiocManager::install("ExperimentHub")
 BiocManager::install("slinky")
-
+BiocManager::install("tximport")
 
 
 
