@@ -124,57 +124,197 @@ WGCNA_res <- FastWGCNA(expr.matrix=probeAnnotation_res$exprSet,design=GSE5281_pD
                       hub_MM = 0.8,hub_WeightedQ = 0.01,parallel = T,report = F,two.step = F,
                       save.path = "WGCNA2",names = "XieJing")
 save(probeAnnotation_res,GSE5281_pData,WGCNA_res,file="D:/GSE5281/WGCNA_res.rda")
+load(file="D:/GSE5281/WGCNA_res.rda")
 intersect(WGCNA_res$Hub$Block1$HubGenes,c("ACP2","ADK","CDK10","DHFR","MAPKAPK3","MGST3","PKN3","THNSL2")) 
 intersect(colnames(WGCNA_res$dataExpr),c("ACP2","ADK","CDK10","DHFR","MAPKAPK3","MGST3","PKN3","THNSL2")) 
-
-head(WGCNA_res$net$colors,10)
-head(labels2colors(WGCNA_res$net$colors),10)
-
-ME_genes <- cbind(as.data.frame(WGCNA_res$net$colors),labels2colors(WGCNA_res$net$colors)) %>% tibble::rownames_to_column("gene")
-colnames(ME_genes)[2:3] <- c("cluster","Module")
-
-pos <- which(ME_genes$gene %in% c("ACP2","ADK","CDK10","DHFR","MAPKAPK3","MGST3","PKN3","THNSL2") )
-ME_genes[pos,]
-
-ME_green <- ME_genes$gene[ME_genes$Module == "green"]
-ME_green <- na.omit(convert(ME_green,fromtype = "SYMBOL",totype = "ENTREZID"))
+dim(WGCNA_res$dataExpr)
+dim(probeAnnotation_res$exprSet)
+WGCNA_res$sft$powerEstimate
+WGCNA_res$net$MEs[1:4,1:4]
+moduleColors <- labels2colors(WGCNA_res$net$colors)
+module_df <- data.frame(cluster=unname(WGCNA_res$net$colors),gene=names(WGCNA_res$net$colors),moduleColors=moduleColors)
+ob_genes <- c("ACP2","ADK","CDK10","DHFR")
+cyt <- get(load("E:/rProj/sCcRCC/XieJing/WGCNA2/XieJing_Block1_Cytoscape Network.rda"))
+rm(TOM);gc()
+module_df[match(ob_genes,module_df$gene),]
+#cluster  gene moduleColors
+#4792       3  ACP2        brown
+#5605       1   ADK    turquoise
+#5203       7 CDK10        black
+#4660       5  DHFR        green
+#提取brown ACP2
+brown_genes <- cyt$nodeData$nodeName[which(cyt$nodeData[,3] == "brown")]
+head(cyt$edgeData)
+brown_edgeData <- cyt$edgeData[(cyt$edgeData$fromNode %in% brown_genes) & (cyt$edgeData$toNode %in% brown_genes),]
+brown_edgeData %<>% filter(.,fromNode == "ACP2" | toNode == "ACP2") %>% 
+                   filter(.,weight > 0.05) %>% 
+                   bind_rows(.,brown_edgeData[brown_edgeData$fromNode == "ACP2" & brown_edgeData$toNode == "PTK2B",])
+brown_edgeData %>% filter(.,((fromNode == "ACP2") & (toNode %in% c("PTK2B"))) | ((toNode == "ACP2") & (fromNode %in% c("PTK2B"))))
+unique(c(brown_edgeData$fromNode,brown_edgeData$toNode))
+brown_nodes <- data.frame(name=unique(c(brown_edgeData$fromNode,brown_edgeData$toNode)),
+                          type=rep("genes",length(unique(c(brown_edgeData$fromNode,brown_edgeData$toNode)))))
+brown_nodes$type[which(brown_nodes$name == "ACP2")] = "risk_gene"
+brown_network <- FastnetworkVisualization(edges=brown_edgeData[,1:3],nodes=brown_nodes,
+                         layout=c("stress")[1],directed = F)
+pdf("D:/GSE5281/brown_network.pdf",width=10,height=10)
+print(brown_network$p)
+dev.off()
+ACP2_brown <- brown_nodes$name
+ACP2_brown <- na.omit(convert(ACP2_brown,fromtype = "SYMBOL",totype = "ENTREZID"))
 geneList <- t(WGCNA_res$dataExpr)[,1]
 geneList_names <- convert(names(geneList),fromtype = "SYMBOL",totype = "ENTREZID")
 pos <- which(!is.na(geneList_names))
 geneList <- geneList[pos]
 names(geneList) <- geneList_names[pos]
-ME_green_GOres <- FastGO(ME_green,geneList,organism = c("human","mouse")[1],
-                   default.universe = F,classlevel = 2:2,
-                   OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
-                   keyType = NULL,pAdjustMethod = "BH",
-                   pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
-                   cnet.showCategory = 5,verbose = TRUE,save.path = "ME_green_GO",names = "XieJing")
-
-ME_black <- ME_genes$gene[ME_genes$Module == "black"]
-ME_black <- na.omit(convert(ME_black,fromtype = "SYMBOL",totype = "ENTREZID"))
-ME_black_GOres <- FastGO(ME_black,geneList,organism = c("human","mouse")[1],
+ACP2_brown_GOres <- FastGO(ACP2_brown,geneList,organism = c("human","mouse")[1],
                          default.universe = F,classlevel = 2:2,
                          OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
                          keyType = NULL,pAdjustMethod = "BH",
                          pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
-                         cnet.showCategory = 5,verbose = TRUE,save.path = "ME_black_GO",names = "XieJing")
-
-ME_brown <- ME_genes$gene[ME_genes$Module == "brown"]
-ME_brown <- na.omit(convert(ME_brown,fromtype = "SYMBOL",totype = "ENTREZID"))
-ME_brown_GOres <- FastGO(ME_brown,geneList,organism = c("human","mouse")[1],
-                         default.universe = F,classlevel = 2:2,
-                         OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
-                         keyType = NULL,pAdjustMethod = "BH",
-                         pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
-                         cnet.showCategory = 5,verbose = TRUE,save.path = "ME_brown_GO",names = "XieJing")
+                         cnet.showCategory = 5,verbose = TRUE,save.path = "ACP2_brown_GO",names = "XieJing")
 
 
-ME_turquoise <- ME_genes$gene[ME_genes$Module == "turquoise"]
-ME_turquoise <- na.omit(convert(ME_turquoise,fromtype = "SYMBOL",totype = "ENTREZID"))
-ME_turquoise_GOres <- FastGO(ME_turquoise,geneList,organism = c("human","mouse")[1],
-                         default.universe = F,classlevel = 2:2,
-                         OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
-                         keyType = NULL,pAdjustMethod = "BH",
-                         pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
-                         cnet.showCategory = 5,verbose = TRUE,save.path = "ME_turquoise_GO",names = "XieJing")
-save(ME_green_GOres,ME_black_GOres,ME_brown_GOres,ME_turquoise_GOres,file="D:/GSE5281/GO_res.rda")
+#提取turquoise
+turquoise_genes <- cyt$nodeData$nodeName[which(cyt$nodeData[,3] == "turquoise")]
+turquoise_edgeData <- cyt$edgeData[(cyt$edgeData$fromNode %in% turquoise_genes) & (cyt$edgeData$toNode %in% turquoise_genes),]
+turquoise_edgeData1 <- turquoise_edgeData %>% filter(.,fromNode == "ADK" | toNode == "ADK") %>% 
+                                             filter(.,weight > 0.13) 
+turquoise_edgeData2 <- turquoise_edgeData %>% filter(.,((fromNode == "ADK") & (toNode %in% c("PSEN1","MEF2C","SORL1"))) | ((toNode == "ADK") & (fromNode %in% c("PSEN1","MEF2C","SORL1"))))
+turquoise_edgeData3 <- turquoise_edgeData1 %>% dplyr::bind_rows(turquoise_edgeData2)
+unique(c(turquoise_edgeData3$fromNode,turquoise_edgeData3$toNode))
+turquoise_nodes <- data.frame(name=unique(c(turquoise_edgeData3$fromNode,turquoise_edgeData3$toNode)),
+                          type=rep("genes",length(unique(c(turquoise_edgeData3$fromNode,turquoise_edgeData3$toNode)))))
+turquoise_nodes$type[which(turquoise_nodes$name == "ADK")] = "risk_gene"
+turquoise_network <- FastnetworkVisualization(edges=turquoise_edgeData3[,1:3],nodes=turquoise_nodes,
+                                          layout=c("stress")[1],directed = F)
+pdf("D:/GSE5281/turquoise_network.pdf",width=10,height=10)
+print(turquoise_network$p)
+dev.off()
+ADK_turquoise <- turquoise_nodes$name
+ADK_turquoise <- na.omit(convert(ADK_turquoise,fromtype = "SYMBOL",totype = "ENTREZID"))
+geneList <- t(WGCNA_res$dataExpr)[,1]
+geneList_names <- convert(names(geneList),fromtype = "SYMBOL",totype = "ENTREZID")
+pos <- which(!is.na(geneList_names))
+geneList <- geneList[pos]
+names(geneList) <- geneList_names[pos]
+ADK_turquoise_GOres <- FastGO(ADK_turquoise,geneList,organism = c("human","mouse")[1],
+                           default.universe = F,classlevel = 2:2,
+                           OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
+                           keyType = NULL,pAdjustMethod = "BH",
+                           pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
+                           cnet.showCategory = 5,verbose = TRUE,save.path = "ADK_turquoise_GO",names = "XieJing")
+
+#提取black CDK10
+black_genes <- cyt$nodeData$nodeName[which(cyt$nodeData[,3] == "black")]
+black_edgeData <- cyt$edgeData[(cyt$edgeData$fromNode %in% black_genes) & (cyt$edgeData$toNode %in% black_genes),]
+black_edgeData1 <- black_edgeData %>% filter(.,fromNode == "CDK10" | toNode == "CDK10") %>% 
+                                      filter(.,weight > 0.02) 
+black_edgeData2 <- black_edgeData %>% filter(.,((fromNode == "CDK10") & (toNode == "ABCA7")) | ((toNode == "CDK10") & (fromNode == "ABCA7")))
+black_edgeData3 <- black_edgeData1 %>% dplyr::bind_rows(black_edgeData2)
+unique(c(black_edgeData3$fromNode,black_edgeData3$toNode))
+black_nodes <- data.frame(name=unique(c(black_edgeData3$fromNode,black_edgeData3$toNode)),
+                              type=rep("genes",length(unique(c(black_edgeData3$fromNode,black_edgeData3$toNode)))))
+black_nodes$type[which(black_nodes$name == "CDK10")] = "risk_gene"
+black_network <- FastnetworkVisualization(edges=black_edgeData3[,1:3],nodes=black_nodes,
+                                              layout=c("stress")[1],directed = F)
+pdf("D:/GSE5281/black_network.pdf",width=10,height=10)
+print(black_network$p)
+dev.off()
+CDK10_black <- black_nodes$name
+CDK10_black <- na.omit(convert(CDK10_black,fromtype = "SYMBOL",totype = "ENTREZID"))
+geneList <- t(WGCNA_res$dataExpr)[,1]
+geneList_names <- convert(names(geneList),fromtype = "SYMBOL",totype = "ENTREZID")
+pos <- which(!is.na(geneList_names))
+geneList <- geneList[pos]
+names(geneList) <- geneList_names[pos]
+CDK10_black_GOres <- FastGO(CDK10_black,geneList,organism = c("human","mouse")[1],
+                              default.universe = F,classlevel = 2:2,
+                              OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
+                              keyType = NULL,pAdjustMethod = "BH",
+                              pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
+                              cnet.showCategory = 5,verbose = TRUE,save.path = "CDK10_black_GO",names = "XieJing")
+
+#提取green DHFR
+green_genes <- cyt$nodeData$nodeName[which(cyt$nodeData[,3] == "green")]
+green_edgeData <- cyt$edgeData[(cyt$edgeData$fromNode %in% green_genes) & (cyt$edgeData$toNode %in% green_genes),]
+green_edgeData1 <- green_edgeData %>% filter(.,fromNode == "DHFR" | toNode == "DHFR") %>% 
+                                      filter(.,weight > 0.025) 
+green_edgeData2 <- green_edgeData %>% filter(.,((fromNode == "DHFR") & (toNode == "ABCA1")) | ((toNode == "CDK10") & (fromNode == "ABCA1")))
+green_edgeData3 <- green_edgeData1 %>% dplyr::bind_rows(green_edgeData2)
+green_edgeData3 <- unique(green_edgeData3)
+unique(c(green_edgeData3$fromNode,green_edgeData3$toNode))
+green_nodes <- data.frame(name=unique(c(green_edgeData3$fromNode,green_edgeData3$toNode)),
+                          type=rep("genes",length(unique(c(green_edgeData3$fromNode,green_edgeData3$toNode)))))
+green_nodes$type[which(green_nodes$name == "DHFR")] = "risk_gene"
+green_network <- FastnetworkVisualization(edges=green_edgeData3[,1:3],nodes=green_nodes,
+                                          layout=c("stress")[1],directed = F)
+pdf("D:/GSE5281/green_network.pdf",width=10,height=10)
+print(green_network$p)
+dev.off()
+DHFR_green <- green_nodes$name
+DHFR_green <- na.omit(convert(DHFR_green,fromtype = "SYMBOL",totype = "ENTREZID"))
+geneList <- t(WGCNA_res$dataExpr)[,1]
+geneList_names <- convert(names(geneList),fromtype = "SYMBOL",totype = "ENTREZID")
+pos <- which(!is.na(geneList_names))
+geneList <- geneList[pos]
+names(geneList) <- geneList_names[pos]
+DHFR_green_GOres <- FastGO(DHFR_green,geneList,organism = c("human","mouse")[1],
+                            default.universe = F,classlevel = 2:2,
+                            OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
+                            keyType = NULL,pAdjustMethod = "BH",
+                            pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
+                            cnet.showCategory = 5,verbose = TRUE,save.path = "DHFR_green_GO",names = "XieJing")
+
+
+
+{
+  head(WGCNA_res$net$colors,10)
+  head(labels2colors(WGCNA_res$net$colors),10)
+  ME_genes <- cbind(as.data.frame(WGCNA_res$net$colors),labels2colors(WGCNA_res$net$colors)) %>% tibble::rownames_to_column("gene")
+  colnames(ME_genes)[2:3] <- c("cluster","Module")
+  pos <- which(ME_genes$gene %in% c("ACP2","ADK","CDK10","DHFR","MAPKAPK3","MGST3","PKN3","THNSL2") )
+  ME_genes[pos,]
+  ME_green <- ME_genes$gene[ME_genes$Module == "green"]
+  ME_green <- na.omit(convert(ME_green,fromtype = "SYMBOL",totype = "ENTREZID"))
+  geneList <- t(WGCNA_res$dataExpr)[,1]
+  geneList_names <- convert(names(geneList),fromtype = "SYMBOL",totype = "ENTREZID")
+  pos <- which(!is.na(geneList_names))
+  geneList <- geneList[pos]
+  names(geneList) <- geneList_names[pos]
+  ME_green_GOres <- FastGO(ME_green,geneList,organism = c("human","mouse")[1],
+                           default.universe = F,classlevel = 2:2,
+                           OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
+                           keyType = NULL,pAdjustMethod = "BH",
+                           pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
+                           cnet.showCategory = 5,verbose = TRUE,save.path = "ME_green_GO",names = "XieJing")
+  
+  ME_black <- ME_genes$gene[ME_genes$Module == "black"]
+  ME_black <- na.omit(convert(ME_black,fromtype = "SYMBOL",totype = "ENTREZID"))
+  ME_black_GOres <- FastGO(ME_black,geneList,organism = c("human","mouse")[1],
+                           default.universe = F,classlevel = 2:2,
+                           OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
+                           keyType = NULL,pAdjustMethod = "BH",
+                           pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
+                           cnet.showCategory = 5,verbose = TRUE,save.path = "ME_black_GO",names = "XieJing")
+  
+  ME_brown <- ME_genes$gene[ME_genes$Module == "brown"]
+  ME_brown <- na.omit(convert(ME_brown,fromtype = "SYMBOL",totype = "ENTREZID"))
+  ME_brown_GOres <- FastGO(ME_brown,geneList,organism = c("human","mouse")[1],
+                           default.universe = F,classlevel = 2:2,
+                           OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
+                           keyType = NULL,pAdjustMethod = "BH",
+                           pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
+                           cnet.showCategory = 5,verbose = TRUE,save.path = "ME_brown_GO",names = "XieJing")
+  
+  ME_turquoise <- ME_genes$gene[ME_genes$Module == "turquoise"]
+  ME_turquoise <- na.omit(convert(ME_turquoise,fromtype = "SYMBOL",totype = "ENTREZID"))
+  ME_turquoise_GOres <- FastGO(ME_turquoise,geneList,organism = c("human","mouse")[1],
+                               default.universe = F,classlevel = 2:2,
+                               OrgDb  = NULL,  #c("org.Mm.eg.db","org.Hs.eg.db")
+                               keyType = NULL,pAdjustMethod = "BH",
+                               pvalueCutoff = 0.05,qvalueCutoff  = 0.05,
+                               cnet.showCategory = 5,verbose = TRUE,save.path = "ME_turquoise_GO",names = "XieJing")
+  save(ME_green_GOres,ME_black_GOres,ME_brown_GOres,ME_turquoise_GOres,file="D:/GSE5281/GO_res.rda")
+}
+
+
